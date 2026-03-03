@@ -368,6 +368,64 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   }
   .video-thumb-link:hover .video-play-btn { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 8px 32px rgba(38,70,83,0.5); }
+  /* Fallback thumbnail - Smart Buffet */
+  .video-thumb-link.thumb-fallback-buffet img { display: none; }
+  .video-thumb-link.thumb-fallback-buffet {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 200px;
+    position: relative;
+  }
+  .video-thumb-link.thumb-fallback-buffet::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(255,255,255,0.03) 38px, rgba(255,255,255,0.03) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(255,255,255,0.03) 38px, rgba(255,255,255,0.03) 40px);
+    border-radius: inherit;
+  }
+  .video-thumb-link.thumb-fallback-buffet::after {
+    content: 'Smart Customer & Buffet Monitoring System';
+    position: absolute;
+    bottom: 2.8rem;
+    left: 0; right: 0;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0 1rem;
+  }
+  /* Fallback thumbnail when YouTube image unavailable */
+  .video-thumb-link.thumb-fallback img { display: none; }
+  .video-thumb-link.thumb-fallback {
+    background: linear-gradient(135deg, #1a2a3a 0%, #264653 50%, #2a9d8f 100%);
+    min-height: 200px;
+    position: relative;
+  }
+  .video-thumb-link.thumb-fallback::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(255,255,255,0.03) 38px, rgba(255,255,255,0.03) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(255,255,255,0.03) 38px, rgba(255,255,255,0.03) 40px);
+    border-radius: inherit;
+  }
+  .video-thumb-link.thumb-fallback::after {
+    content: 'CDIO · Warehouse Layout & SOP Enhancement';
+    position: absolute;
+    bottom: 2.8rem;
+    left: 0; right: 0;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0 1rem;
+  }
   .video-label {
     position: absolute; bottom: 0; left: 0; right: 0;
     background: linear-gradient(transparent, rgba(0,0,0,0.6));
@@ -919,7 +977,8 @@
 
           <div class="project-video">
             <a href="https://youtu.be/Anqew_ohFzY" target="_blank" rel="noopener" class="video-thumb-link">
-              <img src="https://img.youtube.com/vi/Anqew_ohFzY/maxresdefault.jpg" alt="CDIO Warehouse Project Video" onerror="this.src='https://img.youtube.com/vi/Anqew_ohFzY/hqdefault.jpg'">
+              <img src="https://img.youtube.com/vi/Anqew_ohFzY/maxresdefault.jpg" alt="CDIO Warehouse Project Video"
+                onerror="this.onerror=null; this.parentElement.classList.add('thumb-fallback');">
               <div class="video-play-btn">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
               </div>
@@ -982,7 +1041,8 @@
 
           <div class="project-video">
             <a href="https://youtu.be/i4Smz0XSJ2A" target="_blank" rel="noopener" class="video-thumb-link">
-              <img src="https://img.youtube.com/vi/i4Smz0XSJ2A/maxresdefault.jpg" alt="Smart Buffet Monitoring System Video" onerror="this.src='https://img.youtube.com/vi/i4Smz0XSJ2A/hqdefault.jpg'">
+              <img src="https://img.youtube.com/vi/i4Smz0XSJ2A/maxresdefault.jpg" alt="Smart Buffet Monitoring System Video"
+                onerror="this.onerror=null; this.parentElement.classList.add('thumb-fallback-buffet');">
               <div class="video-play-btn">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
               </div>
@@ -1133,13 +1193,8 @@
     </div>
     <div class="contact-links-row fade-in">
       <a href="mailto:azarzayev@gmail.com" class="contact-link">
-        <div class="contact-link-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div>
-          <div class="contact-link-label">Email</div>
-          <div class="contact-link-val">azarzayev@gmail.com</div>
-        </div>
+        <div class="contact-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="contact-link-label">Email</div><div class="contact-link-val">azarzayev@gmail.com</div></div>
       </a>
       <a href="https://linkedin.com/in/azarzayev" target="_blank" rel="noopener" class="contact-link">
         <div class="contact-link-icon">
