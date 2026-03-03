@@ -155,22 +155,7 @@
   .hero-contact-link:hover { color: var(--accent); }
   .hero-contact-link svg { opacity: 0.6; flex-shrink: 0; }
 
-  .typed-effect {
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
-    vertical-align: bottom;
-    max-width: 0;
-    animation: typing 0.8s steps(5, end) 0.5s forwards;
-  }
-  @keyframes typing {
-    from { max-width: 0; }
-    to { max-width: 200px; }
-  }
-  .h1-wrapper {
-    display: block;
-    min-height: 1.2em;
-  }
+
   /* PHOTO */
   .hero-right { display: flex; justify-content: center; align-items: center; }
   .photo-wrap {
@@ -266,11 +251,14 @@
 
   /* ── EDUCATION ── */
   #education {}
-  .edu-grid { display: grid; grid-template-columns: 1fr; gap: 1.2rem; margin-top: 2.5rem; max-width: 700px; }
+  .edu-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; max-width: 100%; }
   .edu-card {
-    padding: 1.8rem; border: 1px solid var(--border); border-radius: 0.4rem;
+    padding: 2rem 2.5rem; border: 1px solid var(--border); border-radius: 0.4rem;
     transition: all var(--transition); position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 220px 1fr; gap: 2.5rem; align-items: start;
   }
+  .edu-card-left { display: flex; flex-direction: column; gap: 0.5rem; }
+  .edu-card-right { display: flex; flex-direction: column; gap: 0.5rem; }
   .edu-card::after {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
     background: var(--accent); transform: scaleX(0); transform-origin: left;
@@ -278,9 +266,9 @@
   }
   .edu-card:hover::after { transform: scaleX(1); }
   .edu-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
-  .edu-degree { font-weight: 700; font-size: 1rem; margin-bottom: 0.3rem; }
+  .edu-degree { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.3rem; }
   .edu-school { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0.3rem; }
-  .edu-date { font-size: 0.75rem; color: var(--mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.7rem; }
+  .edu-date { font-size: 0.75rem; color: var(--mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
   .edu-scholarship {
     display: inline-flex; align-items: center; gap: 0.4rem;
     background: var(--accent-light); border-radius: 2rem;
@@ -376,6 +364,7 @@
     .project-header { grid-template-columns: 1fr; gap: 0.5rem; }
     .project-body { grid-template-columns: 1fr; }
     .project-video { position: static; }
+    .edu-card { grid-template-columns: 1fr; gap: 1rem; }
   }
 
   /* ── VOLUNTEER ── */
@@ -513,7 +502,7 @@
 <!-- HERO -->
 <section id="home">
   <div class="hero-left fade-in">
-    <h1>Hi there, I'm<br><span class="name typed-effect">Azar.</span></h1>
+    <h1>Hi there, I'm<br><span class="name">Azar.</span></h1>
     <p class="hero-sub">
       I'm passionate about sustainability, human-centered values, data engineering and analytics, and responsible AI. Here you will get to know me, my professional experiences, the projects I have contributed to, and the things I enjoy exploring beyond academia and industry.
     </p>
@@ -683,67 +672,79 @@
     <h2 class="fade-in">Academic<br>Background</h2>
     <div class="edu-grid">
       <div class="edu-card fade-in">
-        <div class="edu-date">Aug 2024 – Jun 2026</div>
-        <div class="edu-degree">MSc Sustainable Production Development</div>
-        <div class="edu-school">KTH Royal Institute of Technology, Sweden</div>
-        <span class="edu-scholarship">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg>
-          Swedish Institute Scholarship
-        </span>
-        <div class="exp-tags" style="margin-top:1rem;">
-          <span class="tag">Sustainability</span>
-          <span class="tag">Circular Economy</span>
-          <span class="tag">Supply Chain</span>
-          <span class="tag">Lean Manufacturing</span>
-          <span class="tag">Industrial Engineering</span>
-          <span class="tag">Production Logistics</span>
-          <span class="tag">Production Development</span>
-          <span class="tag">Advanced Analytics</span>
-          <span class="tag">Digitalisation In Sustainable Production</span>
-          <span class="tag">System Simulation</span>
-          <span class="tag">VSM</span>
-          <span class="tag">CDIO</span>
-          <span class="tag">SDG 9</span>
-          <span class="tag">SDG 12</span>
-          <span class="tag">SDG 13</span>
+        <div class="edu-card-left">
+          <div class="edu-date">Aug 2024 – Jun 2026</div>
+          <div class="edu-school">KTH Royal Institute of Technology, Sweden</div>
+          <span class="edu-scholarship">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg>
+            Swedish Institute Scholarship
+          </span>
+        </div>
+        <div class="edu-card-right">
+          <div class="edu-degree">MSc Sustainable Production Development</div>
+          <div class="exp-tags" style="margin-top:0.8rem;">
+            <span class="tag">Sustainability</span>
+            <span class="tag">Circular Economy</span>
+            <span class="tag">Supply Chain</span>
+            <span class="tag">Lean Manufacturing</span>
+            <span class="tag">Industrial Engineering</span>
+            <span class="tag">Production Logistics</span>
+            <span class="tag">Production Development</span>
+            <span class="tag">Advanced Analytics</span>
+            <span class="tag">Digitalisation In Sustainable Production</span>
+            <span class="tag">System Simulation</span>
+            <span class="tag">VSM</span>
+            <span class="tag">CDIO</span>
+            <span class="tag">SDG 9</span>
+            <span class="tag">SDG 12</span>
+            <span class="tag">SDG 13</span>
+          </div>
         </div>
       </div>
       <div class="edu-card fade-in">
-        <div class="edu-date">Feb 2021 – Jan 2022</div>
-        <div class="edu-degree">Master's in Business & Social Sciences</div>
-        <div class="edu-school">Koblenz University of Applied Sciences, Germany</div>
-        <span class="edu-scholarship">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg>
-          DAAD German Government Scholarship
-        </span>
-        <div class="exp-tags" style="margin-top:1rem;">
-          <span class="tag">Project Management</span>
-          <span class="tag">Business Strategy</span>
-          <span class="tag">Organizational Behavior</span>
-          <span class="tag">Research Methods</span>
-          <span class="tag">Stakeholder Management</span>
-          <span class="tag">Innovation Management</span>
-          <span class="tag">Big Data</span>
-          <span class="tag">Intercultural Communication</span>
-          <span class="tag">Data Management</span>
+        <div class="edu-card-left">
+          <div class="edu-date">Feb 2021 – Jan 2022</div>
+          <div class="edu-school">Koblenz University of Applied Sciences, Germany</div>
+          <span class="edu-scholarship">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg>
+            DAAD German Government Scholarship
+          </span>
+        </div>
+        <div class="edu-card-right">
+          <div class="edu-degree">Master's in Business &amp; Social Sciences</div>
+          <div class="exp-tags" style="margin-top:0.8rem;">
+            <span class="tag">Project Management</span>
+            <span class="tag">Business Strategy</span>
+            <span class="tag">Organizational Behavior</span>
+            <span class="tag">Research Methods</span>
+            <span class="tag">Stakeholder Management</span>
+            <span class="tag">Innovation Management</span>
+            <span class="tag">Big Data</span>
+            <span class="tag">Intercultural Communication</span>
+            <span class="tag">Data Management</span>
+          </div>
         </div>
       </div>
       <div class="edu-card fade-in">
-        <div class="edu-date">Sep 2016 – Jun 2020</div>
-        <div class="edu-degree">Bachelor's in Information Technology</div>
-        <div class="edu-school">Azerbaijan Technical University, Azerbaijan</div>
-        <span class="edu-scholarship">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg>
-          Azerbaijan Governmental Excellence Scholarship
-        </span>
-        <div class="exp-tags" style="margin-top:1rem;">
-          <span class="tag">Data Structures</span>
-          <span class="tag">Algorithms</span>
-          <span class="tag">Databases</span>
-          <span class="tag">Software Engineering</span>
-          <span class="tag">Networking</span>
-          <span class="tag">Programming</span>
-          <span class="tag">Systems Analysis</span>
+        <div class="edu-card-left">
+          <div class="edu-date">Sep 2016 – Jun 2020</div>
+          <div class="edu-school">Azerbaijan Technical University, Azerbaijan</div>
+          <span class="edu-scholarship">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg>
+            Azerbaijan Governmental Excellence Scholarship
+          </span>
+        </div>
+        <div class="edu-card-right">
+          <div class="edu-degree">Bachelor's in Information Technology</div>
+          <div class="exp-tags" style="margin-top:0.8rem;">
+            <span class="tag">Data Structures</span>
+            <span class="tag">Algorithms</span>
+            <span class="tag">Databases</span>
+            <span class="tag">Software Engineering</span>
+            <span class="tag">Networking</span>
+            <span class="tag">Programming</span>
+            <span class="tag">Systems Analysis</span>
+          </div>
         </div>
       </div>
     </div>
