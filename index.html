@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
+    color-scheme: light;
     --black: #0e0e0e;
     --white: #fafafa;
     --accent: #264653;
@@ -25,6 +26,11 @@
     --beige: #1c1c1a;
     --border: rgba(255,255,255,0.09);
     --mid: #999;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="dark"]) {
+      color-scheme: light;
+    }
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -365,19 +371,23 @@
     .project-body { grid-template-columns: 1fr; }
     .project-video { position: static; }
     .edu-card { grid-template-columns: 1fr; gap: 1rem; }
+    .vol-card { grid-template-columns: 1fr; gap: 1rem; }
   }
 
   /* ── VOLUNTEER ── */
-  .vol-grid { display: grid; grid-template-columns: 1fr; gap: 1.2rem; margin-top: 2.5rem; max-width: 700px; }
+  .vol-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; max-width: 100%; }
   .vol-card {
-    padding: 1.8rem; border: 1px solid var(--border); border-radius: 0.4rem;
-    transition: all var(--transition);
+    padding: 2rem 2.5rem; border: 1px solid var(--border); border-radius: 0.4rem;
+    transition: all var(--transition); position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 220px 1fr; gap: 2.5rem; align-items: start;
   }
+  .vol-card-left { display: flex; flex-direction: column; gap: 0.4rem; }
+  .vol-card-right { display: flex; flex-direction: column; gap: 0.5rem; }
   .vol-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-2px); }
-  .vol-icon { font-size: 1.8rem; margin-bottom: 0.9rem; }
-  .vol-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
-  .vol-org { font-size: 0.8rem; color: var(--accent); font-weight: 700; margin-bottom: 0.6rem; }
-  .vol-date { font-size: 0.72rem; color: var(--mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.7rem; }
+  .vol-icon { color: var(--accent); margin-bottom: 0.5rem; }
+  .vol-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .vol-org { font-size: 0.8rem; color: var(--accent); font-weight: 700; margin-bottom: 0.3rem; }
+  .vol-date { font-size: 0.72rem; color: var(--mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
   .pride-dots {
     position: absolute; top: 1rem; right: 1rem;
     display: flex; gap: 4px; align-items: center;
@@ -514,10 +524,7 @@
     </div>
 
     <div class="hero-contacts">
-      <a href="/cdn-cgi/l/email-protection#71100b10030b1008140731161c10181d5f121e1c" class="hero-contact-link">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span class="__cf_email__" data-cfemail="6a0b100b18100b130f1c2a0d070b030644090507">[email&#160;protected]</span>
-      </a>
+      <a href="mailto:azarzayev@gmail.com" class="hero-contact-link"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>azarzayev@gmail.com</a>
       <a href="https://linkedin.com/in/azarzayev" target="_blank" rel="noopener" class="hero-contact-link">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         linkedin.com/in/azarzayev
@@ -989,46 +996,49 @@
     <h2 class="fade-in">Volunteer &<br>Community</h2>
     <div class="vol-grid">
       <div class="vol-card fade-in">
-        <div class="vol-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        <div class="vol-card-left">
+          <div class="vol-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+          <div class="vol-date">Jul 2025 – Present</div>
+          <div class="vol-org">Data &amp; AI Stockholm</div>
+          <a href="https://www.dataaistockholm.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.2rem;font-size:0.72rem;font-weight:600;color:var(--accent);text-decoration:none;opacity:0.85;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>dataaistockholm.com</a>
+          <div style="font-size:0.72rem;color:var(--mid);margin-top:0.3rem;">Stockholm, Sweden</div>
         </div>
-        <h3>Technical Content Creator</h3>
-        <div class="vol-org">Data & AI Stockholm</div>
-        <a href="https://www.dataaistockholm.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.3rem;margin-bottom:0.4rem;font-size:0.72rem;font-weight:600;color:var(--accent);text-decoration:none;letter-spacing:0.02em;opacity:0.85;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          dataaistockholm.com
-        </a>
-        <div class="vol-date">Jul 2025 – Present · Stockholm, Sweden</div>
-        <p>Produce and edit video, photo, and podcast content documenting DAIS events. Maintain the DAIS website and visual asset library to support community engagement.</p>
-        <div class="exp-tags" style="margin-top:1rem;">
-          <span class="tag">Content Creation</span>
-          <span class="tag">Video Editing</span>
-          <span class="tag">Podcast Production</span>
-          <span class="tag">Photography</span>
-          <span class="tag">Web Management</span>
-          <span class="tag">Community Building</span>
-          <span class="tag">Social Media</span>
+        <div class="vol-card-right">
+          <h3>Technical Content Creator</h3>
+          <p>Produce and edit video, photo, and podcast content documenting DAIS events. Maintain the DAIS website and visual asset library to support community engagement.</p>
+          <div class="exp-tags" style="margin-top:0.8rem;">
+            <span class="tag">Content Creation</span>
+            <span class="tag">Video Editing</span>
+            <span class="tag">Podcast Production</span>
+            <span class="tag">Photography</span>
+            <span class="tag">Web Management</span>
+            <span class="tag">Community Building</span>
+            <span class="tag">Social Media</span>
+          </div>
         </div>
       </div>
       <div class="vol-card fade-in">
-        <div class="vol-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <div class="vol-card-left">
+          <div class="vol-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="vol-date">Aug 2025 · 2 Days</div>
+          <div class="vol-org">Data Saturday Oslo</div>
+          <div style="font-size:0.72rem;color:var(--mid);margin-top:0.3rem;">Oslo, Norway</div>
+          <span class="industry-tag" style="margin-top:0.6rem;">Science &amp; Technology</span>
         </div>
-        <h3>Volunteer</h3>
-        <div class="vol-org">Data Saturday Oslo</div>
-        <div class="vol-date">Aug 2025 · 2 Days Conference · Oslo, Norway</div>
-        <div class="industry-tag" style="margin-bottom:0.7rem;">Science & Technology</div>
-        <p>Helped ensure the smooth running of the event by moderating sessions, managing timelines, organizing the workspace, and assisting sponsors with setup and coordination.</p>
-        <div class="exp-tags" style="margin-top:1rem;">
-          <span class="tag">Event Management</span>
-          <span class="tag">Session Moderation</span>
-          <span class="tag">Sponsor Coordination</span>
-          <span class="tag">Logistics</span>
-          <span class="tag">Conference</span>
-          <span class="tag">Community Engagement</span>
+        <div class="vol-card-right">
+          <h3>Volunteer</h3>
+          <p>Helped ensure the smooth running of the event by moderating sessions, managing timelines, organizing the workspace, and assisting sponsors with setup and coordination.</p>
+          <div class="exp-tags" style="margin-top:0.8rem;">
+            <span class="tag">Event Management</span>
+            <span class="tag">Session Moderation</span>
+            <span class="tag">Sponsor Coordination</span>
+            <span class="tag">Logistics</span>
+            <span class="tag">Conference</span>
+            <span class="tag">Community Engagement</span>
+          </div>
         </div>
       </div>
-      <div class="vol-card fade-in pride-card" style="position:relative;overflow:hidden;">
+      <div class="vol-card fade-in" style="position:relative;overflow:hidden;">
         <div class="pride-dots">
           <span style="background:#FF0018;"></span>
           <span style="background:#FFA52C;"></span>
@@ -1037,19 +1047,22 @@
           <span style="background:#0000F9;"></span>
           <span style="background:#86007D;"></span>
         </div>
-        <div class="vol-icon" style="margin-top:0.5rem;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        <div class="vol-card-left">
+          <div class="vol-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+          <div class="vol-date">Jul 2025 – Aug 2025</div>
+          <div class="vol-org">Stockholm Pride 2025</div>
+          <div style="font-size:0.72rem;color:var(--mid);margin-top:0.3rem;">Stockholm, Sweden</div>
         </div>
-        <h3>Parade & Community Support</h3>
-        <div class="vol-org">Stockholm Pride 2025</div>
-        <div class="vol-date">Jul 2025 – Aug 2025 · Stockholm, Sweden</div>
-        <p>Supported the parade to ensure it ran smoothly, assisting with logistics and helping coordinate with the team leader. Rewarding to contribute to an event that celebrates diversity and inclusion, while being part of a community that's close to my heart.</p>
-        <div class="exp-tags" style="margin-top:1rem;">
-          <span class="tag">Community Support</span>
-          <span class="tag">Logistics</span>
-          <span class="tag">Diversity & Inclusion</span>
-          <span class="tag">Event Coordination</span>
-          <span class="tag">Teamwork</span>
+        <div class="vol-card-right">
+          <h3>Parade &amp; Community Support</h3>
+          <p>Supported the parade to ensure it ran smoothly, assisting with logistics and helping coordinate with the team leader. Rewarding to contribute to an event that celebrates diversity and inclusion, while being part of a community that's close to my heart.</p>
+          <div class="exp-tags" style="margin-top:0.8rem;">
+            <span class="tag">Community Support</span>
+            <span class="tag">Logistics</span>
+            <span class="tag">Diversity &amp; Inclusion</span>
+            <span class="tag">Event Coordination</span>
+            <span class="tag">Teamwork</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1110,13 +1123,13 @@
       <h2>Let's build something<br><em style="font-style:italic;font-weight:300;">meaningful.</em></h2>
     </div>
     <div class="contact-links-row fade-in">
-      <a href="/cdn-cgi/l/email-protection#9bfae1fae9e1fae2feeddbfcf6faf2f7b5f8f4f6" class="contact-link">
+      <a href="mailto:azarzayev@gmail.com" class="contact-link">
         <div class="contact-link-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
         <div>
           <div class="contact-link-label">Email</div>
-          <div class="contact-link-val"><span class="__cf_email__" data-cfemail="77160d16050d160e120137101a161e1b5914181a">[email&#160;protected]</span></div>
+          <div class="contact-link-val">azarzayev@gmail.com</div>
         </div>
       </a>
       <a href="https://linkedin.com/in/azarzayev" target="_blank" rel="noopener" class="contact-link">
@@ -1159,7 +1172,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function toggleTheme() {
     const html = document.documentElement;
     const isDark = html.getAttribute('data-theme') === 'dark';
