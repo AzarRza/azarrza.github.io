@@ -155,6 +155,22 @@
   .hero-contact-link:hover { color: var(--accent); }
   .hero-contact-link svg { opacity: 0.6; flex-shrink: 0; }
 
+  .typed-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: bottom;
+    max-width: 0;
+    animation: typing 0.8s steps(5, end) 0.5s forwards;
+  }
+  @keyframes typing {
+    from { max-width: 0; }
+    to { max-width: 200px; }
+  }
+  .h1-wrapper {
+    display: block;
+    min-height: 1.2em;
+  }
   /* PHOTO */
   .hero-right { display: flex; justify-content: center; align-items: center; }
   .photo-wrap {
@@ -497,7 +513,7 @@
 <!-- HERO -->
 <section id="home">
   <div class="hero-left fade-in">
-    <h1>Hi there, I'm <span class="name" id="typed-name" style="display:inline-block;min-width:4px;"></span></h1>
+    <h1>Hi there, I'm<br><span class="name typed-effect">Azar.</span></h1>
     <p class="hero-sub">
       I'm passionate about sustainability, human-centered values, data engineering and analytics, and responsible AI. Here you will get to know me, my professional experiences, the projects I have contributed to, and the things I enjoy exploring beyond academia and industry.
     </p>
@@ -509,9 +525,9 @@
     </div>
 
     <div class="hero-contacts">
-      <a href="mailto:azarzayev@gmail.com" class="hero-contact-link">
+      <a href="/cdn-cgi/l/email-protection#71100b10030b1008140731161c10181d5f121e1c" class="hero-contact-link">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        azarzayev@gmail.com
+        <span class="__cf_email__" data-cfemail="6a0b100b18100b130f1c2a0d070b030644090507">[email&#160;protected]</span>
       </a>
       <a href="https://linkedin.com/in/azarzayev" target="_blank" rel="noopener" class="hero-contact-link">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
@@ -1093,13 +1109,13 @@
       <h2>Let's build something<br><em style="font-style:italic;font-weight:300;">meaningful.</em></h2>
     </div>
     <div class="contact-links-row fade-in">
-      <a href="mailto:azarzayev@gmail.com" class="contact-link">
+      <a href="/cdn-cgi/l/email-protection#9bfae1fae9e1fae2feeddbfcf6faf2f7b5f8f4f6" class="contact-link">
         <div class="contact-link-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
         <div>
           <div class="contact-link-label">Email</div>
-          <div class="contact-link-val">azarzayev@gmail.com</div>
+          <div class="contact-link-val"><span class="__cf_email__" data-cfemail="77160d16050d160e120137101a161e1b5914181a">[email&#160;protected]</span></div>
         </div>
       </a>
       <a href="https://linkedin.com/in/azarzayev" target="_blank" rel="noopener" class="contact-link">
@@ -1152,34 +1168,17 @@
   let saved; try { saved = localStorage.getItem('theme'); } catch(e) { saved = null; }
   if (saved) document.documentElement.setAttribute('data-theme', saved);
 
-  // Typewriter effect
-  (function() {
-    const typedEl = document.getElementById('typed-name');
-    if (!typedEl) return;
-    const word = 'Azar.';
-    let i = 0;
-    typedEl.textContent = '';
-    function type() {
-      if (i < word.length) {
-        typedEl.textContent += word[i];
-        i++;
-        setTimeout(type, 120);
-      }
-    }
-    setTimeout(type, 800);
-  })();
-
   // Active nav highlighting on scroll
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
+  window.addEventListener('scroll', function() {
     let current = '';
-    sections.forEach(section => {
+    sections.forEach(function(section) {
       if (window.scrollY >= section.offsetTop - 120) {
         current = section.getAttribute('id');
       }
     });
-    navLinks.forEach(link => {
+    navLinks.forEach(function(link) {
       link.classList.remove('active');
       if (link.getAttribute('href') === '#' + current) {
         link.classList.add('active');
@@ -1187,35 +1186,65 @@
     });
   });
 
-  window.addEventListener('scroll', () => {
+  window.addEventListener('scroll', function() {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
 
   function toggleMenu() {
     document.getElementById('nav-links').classList.toggle('open');
   }
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open'));
+  document.querySelectorAll('.nav-links a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.getElementById('nav-links').classList.remove('open');
+    });
   });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
         observer.unobserve(e.target);
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+</script>
 
-  function sendMessage(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const msg = document.getElementById('form-msg');
-    if (!name || !email || !message) {
-      msg.style.color = '#ff6b6b'; msg.textContent = 'Please fill in all required fields.'; msg.style.display = 'block'; return;
+<script>
+  (function() {
+    var el = document.getElementById('typed-name');
+    if (!el) return;
+    var word = 'Azar.';
+    var i = 0;
+    el.textContent = '';
+    function typeNext() {
+      if (i < word.length) {
+        el.textContent += word.charAt(i);
+        i++;
+        setTimeout(typeNext, 120);
+      }
     }
-    const subject = document.getElementById('subject').value || 'Portfolio Contact';
-    window.location.href = `mailto:azarzayev@gmail.com?subject=${encodeURICompon
+    setTimeout(typeNext, 900);
+  })();
+</script>
+
+<script>
+  (function() {
+    var el = document.getElementById('typed-name');
+    if (!el) return;
+    var word = 'Azar.';
+    var i = 0;
+    el.textContent = '';
+    function typeNext() {
+      if (i < word.length) {
+        el.textContent += word.charAt(i);
+        i++;
+        setTimeout(typeNext, 120);
+      }
+    }
+    setTimeout(typeNext, 900);
+  })();
+</script>
+
+</body>
+</html>
