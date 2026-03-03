@@ -1164,10 +1164,7 @@
     const html = document.documentElement;
     const isDark = html.getAttribute('data-theme') === 'dark';
     html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    try { localStorage.setItem('theme', isDark ? 'light' : 'dark'); } catch(e) {}
   }
-  let saved; try { saved = localStorage.getItem('theme'); } catch(e) { saved = null; }
-  if (saved) document.documentElement.setAttribute('data-theme', saved);
 
   // Active nav highlighting on scroll
   const sections = document.querySelectorAll('section[id]');
