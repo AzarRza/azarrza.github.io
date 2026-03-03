@@ -162,6 +162,15 @@
   .hero-contact-link svg { opacity: 0.6; flex-shrink: 0; }
 
 
+  .tl {
+    display: inline-block;
+    opacity: 0;
+    animation: tlshow 0.01s forwards;
+  }
+  @keyframes tlshow {
+    to { opacity: 1; }
+  }
+
   /* PHOTO */
   .hero-right { display: flex; justify-content: center; align-items: center; }
   .photo-wrap {
@@ -512,7 +521,7 @@
 <!-- HERO -->
 <section id="home">
   <div class="hero-left fade-in">
-    <h1>Hi there, I'm<br><span class="name">Azar.</span></h1>
+    <h1>Hi there, I'm<br><span class="name"><span class="tl" style="animation-delay:0.5s">A</span><span class="tl" style="animation-delay:0.7s">z</span><span class="tl" style="animation-delay:0.9s">a</span><span class="tl" style="animation-delay:1.1s">r</span><span class="tl" style="animation-delay:1.3s">.</span></span></h1>
     <p class="hero-sub">
       I'm passionate about sustainability, human-centered values, data engineering and analytics, and responsible AI. Here you will get to know me, my professional experiences, the projects I have contributed to, and the things I enjoy exploring beyond academia and industry.
     </p>
@@ -524,7 +533,7 @@
     </div>
 
     <div class="hero-contacts">
-      <a href="mailto:azarzayev@gmail.com" class="hero-contact-link"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>azarzayev@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#35544f54474f544c5043755258545c591b565a58" class="hero-contact-link"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="__cf_email__" data-cfemail="096873687b7368706c7f496e64686065276a6664">[email&#160;protected]</span></a>
       <a href="https://linkedin.com/in/azarzayev" target="_blank" rel="noopener" class="hero-contact-link">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         linkedin.com/in/azarzayev
@@ -1123,13 +1132,13 @@
       <h2>Let's build something<br><em style="font-style:italic;font-weight:300;">meaningful.</em></h2>
     </div>
     <div class="contact-links-row fade-in">
-      <a href="mailto:azarzayev@gmail.com" class="contact-link">
+      <a href="/cdn-cgi/l/email-protection#8cedf6edfef6edf5e9faccebe1ede5e0a2efe3e1" class="contact-link">
         <div class="contact-link-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
         <div>
           <div class="contact-link-label">Email</div>
-          <div class="contact-link-val">azarzayev@gmail.com</div>
+          <div class="contact-link-val"><span class="__cf_email__" data-cfemail="b2d3c8d3c0c8d3cbd7c4f2d5dfd3dbde9cd1dddf">[email&#160;protected]</span></div>
         </div>
       </a>
       <a href="https://linkedin.com/in/azarzayev" target="_blank" rel="noopener" class="contact-link">
@@ -1172,7 +1181,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function toggleTheme() {
     const html = document.documentElement;
     const isDark = html.getAttribute('data-theme') === 'dark';
@@ -1240,22 +1249,3 @@
 </script>
 
 <script>
-  (function() {
-    var el = document.getElementById('typed-name');
-    if (!el) return;
-    var word = 'Azar.';
-    var i = 0;
-    el.textContent = '';
-    function typeNext() {
-      if (i < word.length) {
-        el.textContent += word.charAt(i);
-        i++;
-        setTimeout(typeNext, 120);
-      }
-    }
-    setTimeout(typeNext, 900);
-  })();
-</script>
-
-</body>
-</html>
