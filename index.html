@@ -433,14 +433,6 @@
     padding: 1.5rem 1rem 0.8rem; letter-spacing: 0.03em;
   }
   .project-video iframe { width: 100%; aspect-ratio: 16/9; border-radius: 0.4rem; border: none; }
-  @media (max-width: 900px) {
-    .project-header { grid-template-columns: 1fr; gap: 0.5rem; }
-    .project-body { grid-template-columns: 1fr; }
-    .project-video { position: static; }
-    .edu-card { grid-template-columns: 1fr; gap: 1rem; }
-    .vol-card { grid-template-columns: 1fr; gap: 1rem; }
-  }
-
   /* ── VOLUNTEER ── */
   .vol-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; max-width: 100%; }
   .vol-card {
@@ -528,28 +520,94 @@
   .fade-in.animate { opacity: 0; transform: translateY(20px); }
   .fade-in.animate.visible { opacity: 1; transform: none; }
 
-  /* RESPONSIVE */
+  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    #home { grid-template-columns: 1fr; padding-top: 7rem; gap: 3rem; }
-    .hero-right { order: -1; }
-    .photo-wrap { width: min(240px, 60vw); }
-    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    #home { grid-template-columns: 1fr; padding-top: 7rem; gap: 2.5rem; }
+    .hero-right { order: -1; display: flex; justify-content: center; }
+    .photo-wrap { width: min(220px, 55vw); }
+    .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .exp-left { display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .project-header { grid-template-columns: 1fr; gap: 0.4rem; }
+    .project-body { grid-template-columns: 1fr; gap: 2rem; }
+    .project-video { position: static; width: 100%; }
+    .edu-card { grid-template-columns: 1fr; gap: 1rem; }
+    .vol-card { grid-template-columns: 1fr; gap: 1rem; }
     .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
     .form-row { grid-template-columns: 1fr; }
+    .contact-links-row { grid-template-columns: 1fr 1fr; }
   }
+
   @media (max-width: 640px) {
+    /* Nav */
     .nav-links { display: none; }
     .nav-links.open {
       display: flex; flex-direction: column;
       position: absolute; top: 100%; left: 0; right: 0;
       background: var(--white); padding: 1.5rem 5vw;
       border-bottom: 1px solid var(--border); gap: 1.2rem;
+      z-index: 999;
     }
     .hamburger { display: flex; }
-    section { padding: 4rem 5vw; }
-    .stats-inner { gap: 1rem; }
-    .stat { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem; }
+
+    /* Sections */
+    section { padding: 3.5rem 5vw; }
+
+    /* Hero */
+    #home { padding-top: 6rem; gap: 2rem; }
+    .photo-wrap { width: min(180px, 50vw); }
+    h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
+    .hero-title-line2 { font-size: clamp(2.2rem, 9vw, 3rem); }
+    .hero-desc { font-size: 0.9rem; }
+    .hero-contacts { gap: 0.4rem 1rem; }
+    .hero-contact-link { font-size: 0.78rem; }
+    .hero-actions { flex-direction: column; gap: 0.7rem; }
+    .hero-actions a { width: 100%; justify-content: center; text-align: center; }
+    .hero-meta { gap: 1rem; }
+
+    /* Stats */
+    .stats-inner { flex-direction: column; gap: 0; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem; width: 100%; }
     .stat:last-child { border-bottom: none; }
+
+    /* Experience */
+    .exp-item { padding: 1.5rem 0 1.5rem 0.8rem; }
+    .exp-left { flex-wrap: wrap; flex-direction: row; gap: 0.4rem; }
+
+    /* Education & Volunteer cards */
+    .edu-card { padding: 1.5rem; gap: 1rem; }
+    .vol-card { padding: 1.5rem; gap: 1rem; }
+    .edu-card-left, .vol-card-left { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+
+    /* Projects */
+    .project-item { padding: 2rem 0 2rem 0.8rem; }
+    .project-body { gap: 1.5rem; }
+    .project-results { gap: 0.5rem; }
+    .result-item { min-width: 90px; padding: 0.6rem 0.8rem; }
+    .result-num { font-size: 1.2rem; }
+    .video-thumb-link { min-height: 160px; }
+    .video-thumb-link.thumb-fallback,
+    .video-thumb-link.thumb-fallback-buffet { min-height: 160px; }
+
+    /* Skills */
+    .skills-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    /* Loves */
+    .loves-grid { grid-template-columns: 1fr; }
+
+    /* Contact */
+    .contact-links-row { grid-template-columns: 1fr; }
+    .contact-link-val { font-size: 0.75rem; word-break: break-all; }
+
+    /* Footer */
+    footer { flex-direction: column; align-items: flex-start; gap: 0.8rem; padding: 1.5rem 5vw; }
+    .footer-links { gap: 1rem; flex-wrap: wrap; }
+  }
+
+  @media (max-width: 380px) {
+    h1, .hero-title-line2 { font-size: 2rem; }
+    .photo-wrap { width: min(150px, 45vw); }
+    section { padding: 3rem 4vw; }
+    .edu-card, .vol-card { padding: 1.2rem; }
   }
 </style>
 </head>
