@@ -15,8 +15,8 @@ It's a single-page site I put together to give people a real sense of who I am, 
 **Skills** : SQL, Python (Pandas, NumPy), Power BI, Tableau, Oracle BI, SSRS, SSAS, Crystal Reports, ETL/ELT, Data Warehousing, Data Modeling, and more. There's also a languages section — I speak Azerbaijani, Russian, English, Turkish, and some Swedish.
 
 **Projects** : two featured ones right now:
-- *CDIO Methods for Warehouse Layout and SOP Enhancement* — applied the CDIO framework at ReMade in Sweden AB to redesign their warehouse layout and build Standard Operating Procedures that cut down bottlenecks in shelving, picking, and packing.
-- *Smart Customer & Buffet Monitoring System* — an IoT/computer vision project for smart monitoring in a buffet setting.
+- *CDIO Methods for Warehouse Layout and SOP Enhancement* : applied the CDIO framework at ReMade in Sweden AB to redesign their warehouse layout and build Standard Operating Procedures that cut down bottlenecks in shelving, picking, and packing.
+- *Smart Customer & Buffet Monitoring System* : an IoT/computer vision project for smart monitoring in a buffet setting.
 
 **Volunteer** : I'm involved with Data & AI Stockholm and Data Saturday Oslo, and volunteered at Stockholm Pride 2025.
 
